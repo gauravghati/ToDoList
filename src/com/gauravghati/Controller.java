@@ -44,7 +44,6 @@ public class Controller {
 //        list.add(item3);
 //        list.add(item4);
 //        list.add(item5);
-//
 //        ToDoData.getInstance().setToDoItem(list);
 
 
