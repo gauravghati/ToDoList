@@ -1,5 +1,6 @@
 package com.gauravghati;
 
+import com.gauravghati.dataModels.ToDoData;
 import com.gauravghati.dataModels.ToDoItems;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -8,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
+
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -26,22 +28,26 @@ public class Controller {
     private Label dueDateText;
 
     public void initialize(){
-        ToDoItems item1 = new ToDoItems("Mail BirthDay Card","Buy a 30th anniversary Card of john.",
-                LocalDate.of(2016,Month.APRIL,25));
-        ToDoItems item2 = new ToDoItems("Doctors Appoinment","See doctor Smith bring slip",
-                LocalDate.of(2016,Month.MAY,23));
-        ToDoItems item3 = new ToDoItems("Finish desing proposal","Asap",
-                LocalDate.of(2016,Month.APRIL,22));
-        ToDoItems item4 = new ToDoItems("MPickup from train station","Sister arriving",
-                LocalDate.of(2016,Month.MARCH,25));
-        ToDoItems item5 = new ToDoItems("Dry Cleaning of cloths","Cloths Should be ready on that time.",
-                LocalDate.of(2016,Month.APRIL,25));
+//        ToDoItems item1 = new ToDoItems("Mail BirthDay Card","Buy a 30th anniversary Card of john.",
+//                LocalDate.of(2016,Month.APRIL,25));
+//        ToDoItems item2 = new ToDoItems("Doctors Appoinment","See doctor Smith bring slip",
+//                LocalDate.of(2016,Month.MAY,23));
+//        ToDoItems item3 = new ToDoItems("Finish desing proposal","Asap",
+//                LocalDate.of(2016,Month.APRIL,22));
+//        ToDoItems item4 = new ToDoItems("MPickup from train station","Sister arriving",
+//                LocalDate.of(2016,Month.MARCH,25));
+//        ToDoItems item5 = new ToDoItems("Dry Cleaning of cloths","Cloths Should be ready on that time.",
+//                LocalDate.of(2016,Month.APRIL,25));
+//
+//        list.add(item1);
+//        list.add(item2);
+//        list.add(item3);
+//        list.add(item4);
+//        list.add(item5);
+//
+//        ToDoData.getInstance().setToDoItem(list);
 
-        list.add(item1);
-        list.add(item2);
-        list.add(item3);
-        list.add(item4);
-        list.add(item5);
+
 
         toDoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ToDoItems>() {
             @Override
@@ -49,11 +55,11 @@ public class Controller {
                 ToDoItems item = toDoListView.getSelectionModel().getSelectedItem();
                 detailsTextArea.setText(item.getDetails());
                 DateTimeFormatter df = DateTimeFormatter.ofPattern("MMMM d, yyyy");
-                dueDateText.setText(df.format(item.getDeaaline()));
+                dueDateText.setText(df.format(item.getDeadline()));
             }
         });
 
-        toDoListView.getItems().setAll(list);
+        toDoListView.getItems().setAll(ToDoData.getInstance().getToDoItem());
         toDoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         toDoListView.getSelectionModel().selectFirst();
     }
@@ -69,4 +75,6 @@ public class Controller {
 //     s.append("Due  : ");
 //        s.append(item.getDeaaline());
 //    }
+
+
 }

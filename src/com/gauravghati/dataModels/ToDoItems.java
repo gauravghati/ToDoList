@@ -8,10 +8,10 @@ public class ToDoItems {
     private String details;
     private LocalDate deadline;
 
-    public ToDoItems(String shortDescription, String details, LocalDate deaaline) {
+    public ToDoItems(String shortDescription, String details, LocalDate deadline) {
         this.shortDescription = shortDescription;
         this.details = details;
-        this.deadline = deaaline;
+        this.deadline = deadline;
     }
 
 
@@ -31,7 +31,7 @@ public class ToDoItems {
         this.details = details;
     }
 
-    public LocalDate getDeaaline() {
+    public LocalDate getDeadline() {
         return deadline;
     }
 
