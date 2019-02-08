@@ -19,25 +19,25 @@ public class ToDoItems {
         return shortDescription;
     }
 
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
+//    public void setShortDescription(String shortDescription) {
+//        this.shortDescription = shortDescription;
+//    }
 
     public String getDetails() {
         return details;
     }
 
-    public void setDetails(String details) {
-        this.details = details;
-    }
+//    public void setDetails(String details) {
+//        this.details = details;
+//    }
 
     public LocalDate getDeadline() {
         return deadline;
     }
 
-    public void setDeaaline(LocalDate deaaline) {
-        this.deadline = deaaline;
-    }
+//    public void setDeadline(LocalDate deadline) {
+//        this.deadline = deadline;
+//    }
 
     @Override
     public String toString() {

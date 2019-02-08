@@ -38,6 +38,10 @@ public class ToDoData {
 //    }
 
 
+    public void addToDoItems(ToDoItems item){
+        toDoItem.add(item);
+    }
+
     public void loadToDOItems() throws IOException{
         toDoItem = FXCollections.observableArrayList();
         Path path = Paths.get(fileName);
@@ -75,7 +79,6 @@ public class ToDoData {
                         item.getDeadline().format(formatter)));
                 bw.newLine();
             }
-
         } finally {
             if(bw != null) {
                 bw.close();
