@@ -52,10 +52,12 @@ public class Controller {
         toDoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ToDoItems>() {
             @Override
             public void changed(ObservableValue<? extends ToDoItems> observable, ToDoItems oldValue, ToDoItems newValue) {
-                ToDoItems item = toDoListView.getSelectionModel().getSelectedItem();
-                detailsTextArea.setText(item.getDetails());
-                DateTimeFormatter df = DateTimeFormatter.ofPattern("MMMM d, yyyy");
-                dueDateText.setText(df.format(item.getDeadline()));
+                if(newValue!=null){
+                     ToDoItems item = toDoListView.getSelectionModel().getSelectedItem();
+                     detailsTextArea.setText(item.getDetails());
+                     DateTimeFormatter df = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+                     dueDateText.setText(df.format(item.getDeadline()));
+                }
             }
         });
 
