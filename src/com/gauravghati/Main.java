@@ -31,7 +31,6 @@ public class Main extends Application {
             System.out.println(e.getMessage());
         }
     }
-
     @Override
     public void init(){
         try{
