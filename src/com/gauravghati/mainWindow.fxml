@@ -11,25 +11,54 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Button?>
 
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+
+
+<?import javafx.scene.control.ToggleButton?>
 <BorderPane fx:id="mainBorderPane" fx:controller="com.gauravghati.Controller"
             xmlns:fx="http://javafx.com/fxml">
     <top>
-        <MenuBar>
-            <Menu text="File">
-                <MenuItem text="New..." onAction="#showNewItemDialog"/>
-                <SeparatorMenuItem/>
-                <MenuItem text="Exit"/>
-            </Menu>
-        </MenuBar>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="New..." onAction="#showNewItemDialog"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Edit" onAction="#editItem"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#handlerExit"/>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <HBox>
+                    <Button text="New Note" onAction="#showNewItemDialog"
+                            prefWidth="90" alignment="CENTER">
+                        <tooltip>
+                            <Tooltip text="A new To Do Item."/>
+                        </tooltip>
+                    </Button>
+                    <Button fx:id="deleteButton" text="Delete" onAction="#deleteButtonHandler"
+                            prefWidth="90" alignment="CENTER">
+                    </Button>
+                    <ToggleButton fx:id="toggleButton" text="today's Item" onAction="#setToggleButton">
+                        <tooltip>
+                            <Tooltip text="Button Down : Shows today's Item only.. And Button up : Shows All item"/>
+                        </tooltip>
+                    </ToggleButton>
+                </HBox>
+            </ToolBar>
+        </VBox>
     </top>
     <left>
-        <ListView fx:id="toDoListView">  <!--onMouseClicked="#handleClickListView"-->
+        <ListView fx:id="toDoListView" onKeyPressed="#handleKeyPressed">  <!--onMouseClicked="#handleClickListView"-->
+
         </ListView>
     </left>
     <center>
         <VBox style="-fx-background-color : white">
-            <TextArea fx:id="detailsTextArea" VBox.vgrow="ALWAYS"/>
+            <TextArea fx:id="detailsTextArea" VBox.vgrow="ALWAYS" wrapText="true"/>
             <HBox>
                 <Label text="Due : " style="-fx-background-color : white">
                     <font>
@@ -45,10 +74,6 @@
         </VBox>
     </center>
 </BorderPane>
-
-
-
-
 
 
 

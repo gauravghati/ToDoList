@@ -1,9 +1,9 @@
-Mail BirthDay Card	Buy a 30th anniversary Card of john.	25/04/2016
-Doctors Appoinment	See doctor Smith bring slip	23/05/2016
-Finish desing proposal	Asap	22/04/2016
-MPickup from train station	Sister arriving	25/03/2016
-Dry Cleaning of cloths	Cloths Should be ready on that time.	25/04/2016
-hello	Introduction to javaFx	13/02/2019
-Gaurav Check	this is a sample check	28/02/2019
-3rd check	Its the 3rd check or mine	05/03/2019
-4th Check	this is my Fourth Check	09/03/2019
+fourth check	this if Fourth check	01/03/2019
+Fifth Check	THis is Fifth Check	15/02/2019
+Second Check	second was delete for checking then recreated	11/02/2019
+Third Check	third check was removed by the delete button	10/02/2019
+Fourth check	this Check was removed by the second check of delete Button	14/08/2019
+Early January Task	this is to be done in jaunary	23/01/2019
+My BirthDAy	Your BirthDay is On 25th may	25/05/2019
+sixth Check	Blood Donation...	11/02/2019
+seventh check	this is not today	12/02/2019

@@ -1,6 +1,7 @@
 package com.gauravghati.dataModels;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,14 +12,13 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
-import java.util.List;
 
 public class ToDoData {
 
     private static ToDoData instance = new ToDoData();
     private static String fileName = "ToDoList.txt";
 
-    private List<ToDoItems> toDoItem;
+    private ObservableList<ToDoItems> toDoItem;
     private DateTimeFormatter formatter;
 
     public static ToDoData getInstance(){
@@ -29,7 +29,7 @@ public class ToDoData {
         formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     }
 
-    public List<ToDoItems> getToDoItem() {
+    public ObservableList<ToDoItems> getToDoItem() {
         return this.toDoItem;
     }
 
@@ -37,6 +37,9 @@ public class ToDoData {
 //        this.toDoItem = toDoItem;
 //    }
 
+    public void deleteToDoItem(ToDoItems item){
+        toDoItem.remove(item);
+    }
 
     public void addToDoItems(ToDoItems item){
         toDoItem.add(item);
@@ -50,11 +53,10 @@ public class ToDoData {
         String input;
         try{
             while((input = br.readLine())!=null){
-                String[] itemsPieces = input.split("\t");
+                String[] itemsPieces = input.trim().split("\t");
                 String shortDescription = itemsPieces[0];
                 String details = itemsPieces[1];
                 String dateString = itemsPieces[2];
-
                 LocalDate date = LocalDate.parse(dateString,formatter);
                 ToDoItems toDoItems = new ToDoItems(shortDescription, details, date);
                 toDoItem.add(toDoItems);
@@ -85,14 +87,6 @@ public class ToDoData {
             }
         }
     }
-
-
-
-
-
-
-
-
 
 
 }
